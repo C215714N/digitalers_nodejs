@@ -1,0 +1,12 @@
+# Gestor de paquetes
+node_modules/
+*lock.json
+
+# Registro de Cambios
+log/
+*.log
+*.txt
+
+# Entorno de Trabajo
+.vscode/
+.env
