@@ -10,3 +10,9 @@ log/
 # Entorno de Trabajo
 .vscode/
 .env
+
+# Compilacion de Proyecto
+build/
+dist/
+temp/
+*.temp
