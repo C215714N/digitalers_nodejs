@@ -12,3 +12,7 @@ Esto es una guia para los alumnos de la capacitacion __Digitalers NodeJS__ que c
 ## Tabla de Contenidos
 
 * [REPL](./docs/repl.md)
+* Objetos Globales
+    * [console](./docs/global/console.md)
+    * [process](./docs/global/process.md)
+    * [timers](./docs/global/timers.md)
