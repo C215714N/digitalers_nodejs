@@ -4,9 +4,10 @@ const path = require('./path.module.cjs')
 const { getArgs } = require('./process.module');
 const { fileSystemAsync } = require('./fs.async.module');
 const { fileSystemSync } = require('./fs.sync.module');
-
+const { sayHello } = require('./event.module');
 
 const [a, b] = getArgs();
+sayHello();
 console.log(
     info.getSystemInfo(),
     "\n\nModulo", 
