@@ -16,3 +16,7 @@ Esto es una guia para los alumnos de la capacitacion __Digitalers NodeJS__ que c
     * [console](./docs/global/console.md)
     * [process](./docs/global/process.md)
     * [timers](./docs/global/timers.md)
+* Modulos Integrados
+    * [os](./docs/built-in/os.md)
+    * [url](./docs/built-in/url.md)
+    * [path](./docs/built-in/path.md)
