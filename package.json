@@ -1,0 +1,24 @@
+{
+  "name": "http-server",
+  "version": "0.1.0",
+  "description": "Servidor local de archivos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "node --watch .",
+    "deploy": "git push --all && git push --tags",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c215714n/digitalers_nodejs.git"
+  },
+  "keywords": [],
+  "author": "Cristian Racedo & Compañia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c215714n/digitalers_nodejs/issues"
+  },
+  "homepage": "https://github.com/c215714n/digitalers_nodejs#readme"
+}
