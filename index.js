@@ -1,9 +1,10 @@
 // Importaciones
 import { createServer } from "node:http";
-import { readFile } from "node:fs"
+import { readFile, readFileSync } from "node:fs"
 import { parse } from "node:path";
 
 import { getContentTypes } from "./src/utils/contentTypes.js";
+import { getFileName } from "./src/utils/filePaths.js";
 
 // Variables de Entorno
 const {
@@ -15,11 +16,9 @@ const backLog = () => console.log(`servicio ejecutandose en puerto ${PORT}`)
 const app = createServer((req, res) => {
     const { method, url } = req;
     const { ext } = parse(url);
-    const path = process.cwd() + "/public/"
-    let code = 200;
-    let file = path + "index.html"
-
-    const headers = { "Content-Type": getContentTypes(ext)}
+    const file = `./public/${getFileName(url)}`;
+    const headers = {"Content-Type": getContentTypes(ext)}
+    const notFound = readFileSync('./public/404.html')
 
     switch(method){
         case 'GET':
@@ -35,21 +34,17 @@ const app = createServer((req, res) => {
             console.log("peticion DELETE realizada", url)
         break;
     };
-    
-    if (/style|default|css$/.test(url)) {
-        file = path + "styles.css"
-    }
-    if (/script|js$/.test(url)){
-        file = path + "scripts.js"
-    }
-
     readFile(file, (err, data) => {
-        if (err) {
-            code = 404;
-            data = "Ha ocurrido un Error";
+        let code = 500;
+        if (err) { 
+            code = 404; 
+            data = notFound 
+            headers["Content-Type"] = "text/html"
         }
+        code = 200;
         res.writeHead(code, headers);
-        res.end(data.toString());
+        res.write(data.toString());
+        res.end();
     })
 })
 // Implementacion del Servidor
