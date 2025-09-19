@@ -1,6 +1,10 @@
 // Importaciones
 import { createServer } from "node:http";
 import { readFile } from "node:fs"
+import { parse } from "node:path";
+
+import { getContentTypes } from "./src/utils/contentTypes.js";
+
 // Variables de Entorno
 const {
     PORT = 8080,
@@ -10,39 +14,38 @@ const backLog = () => console.log(`servicio ejecutandose en puerto ${PORT}`)
 // Definicion del Servidor
 const app = createServer((req, res) => {
     const { method, url } = req;
+    const { ext } = parse(url);
     const path = process.cwd() + "/public/"
     let code = 200;
     let file = path + "index.html"
-    let headers = { "Content-Type": "text/html"}
+
+    const headers = { "Content-Type": getContentTypes(ext)}
 
     switch(method){
         case 'GET':
-            console.log("consulta GET finalizada", url)
+            console.log("consulta GET finalizada", format, getContentTypes(format))
         break;
         case 'POST':
-            console.log("solicitud POST procesada", url)
+            console.log("solicitud POST procesada", format)
         break;
         case 'PUT':
-            console.log("actualizacion PUT implementada", url)
+            console.log("actualizacion PUT implementada", format)
         break;
         case 'DELETE':
-            console.log("peticion DELETE realizada", url)
+            console.log("peticion DELETE realizada", format)
         break;
     };
     
     if (/style|default|css$/.test(url)) {
         file = path + "styles.css"
-        headers["Content-Type"] = "text/css"
     }
     if (/script|js$/.test(url)){
         file = path + "scripts.js"
-        headers["Content-Type"] = "text/javascript"
     }
 
     readFile(file, (err, data) => {
         if (err) {
             code = 404;
-            headers["Content-Type"] = "text/plain"
             data = "Ha ocurrido un Error";
         }
         res.writeHead(code, headers);
