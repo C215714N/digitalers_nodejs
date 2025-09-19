@@ -5,6 +5,7 @@ import { parse } from "node:path";
 
 import { getContentTypes } from "./src/utils/contentTypes.js";
 import { getFileName } from "./src/utils/filePaths.js";
+import { getMethod } from "./src/utils/methods.js";
 
 // Variables de Entorno
 const {
@@ -16,24 +17,10 @@ const backLog = () => console.log(`servicio ejecutandose en puerto ${PORT}`)
 const app = createServer((req, res) => {
     const { method, url } = req;
     const { ext } = parse(url);
-    const file = `./public/${getFileName(url)}`;
+    const file = `./public/${ req.method === "GET" ? getFileName(url) : 'post.html'}`;
     const headers = {"Content-Type": getContentTypes(ext)}
     const notFound = readFileSync('./public/404.html')
 
-    switch(method){
-        case 'GET':
-            console.log("consulta GET finalizada", url)
-        break;
-        case 'POST':
-            console.log("solicitud POST procesada", url)
-        break;
-        case 'PUT':
-            console.log("actualizacion PUT implementada", url)
-        break;
-        case 'DELETE':
-            console.log("peticion DELETE realizada", url)
-        break;
-    };
     readFile(file, (err, data) => {
         let code = 500;
         if (err) { 
@@ -46,6 +33,7 @@ const app = createServer((req, res) => {
         res.write(data.toString());
         res.end();
     })
+    getMethod(req);
 })
 // Implementacion del Servidor
 app.listen(PORT, HOST, backLog)

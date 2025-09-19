@@ -1,5 +1,5 @@
 const fileList = {
-    "index.html": /\/$|index\.html$|main$|home$/,
+    "index.html": /\/$|index|\.html$|main$|home$/,
     "styles.css": /styles|default\.css/,
     "scripts.js": /scripts|app|main\.js$/,
 }
