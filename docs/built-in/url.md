@@ -1,4 +1,4 @@
-# url
+# url (Unique Resource Locator)
 
 Modulo que proporciona utilidades que facilitan el análisis, la resolución y la manipulación de las URLs en las aplicaciones. Este módulo es útil para aplicaciones web y servidores que necesitan construir, analizar o resolver URLs en sus procesos.
 

@@ -1,6 +1,6 @@
 # path
 
-proporciona utilidades para manejar y transformar rutas de archivos en el sistema de archivos. Simplifica la manipulación de nombres de archivo y directorios y ayuda a crear rutas compatibles con diferentes sistemas operativos.
+Modulo que proporciona utilidades para manejar y transformar rutas de archivos en el sistema de archivos. Simplifica la manipulación de nombres de archivo y directorios y ayuda a crear rutas compatibles con diferentes sistemas operativos.
 
 | Propiedad | Descripción |
 |--|--|
@@ -23,12 +23,12 @@ const filePath = path.resolve(mainDir, 'index.js');
 const fileName = path.basename(filePath);
 const parentDir = path.dirname(filePath);
 const format = path.extname(filePath);
-
+/* Path information */
 console.log(
     `Ruta de la carpeta "data": ${mainDir} \n`,
     `Ruta absoluta del archivo: ${filePath} \n`,
-    `Nombre del archivo: ${fileName} \n`,
     `Directorio padre: ${parentDir} \n`,
+    `Nombre del archivo: ${fileName} \n`,
     `Extensión del archivo: ${format} \n`,
 )
 ```

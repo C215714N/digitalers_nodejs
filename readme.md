@@ -20,3 +20,6 @@ Esto es una guia para los alumnos de la capacitacion __Digitalers NodeJS__ que c
     * [os](./docs/built-in/os.md)
     * [url](./docs/built-in/url.md)
     * [path](./docs/built-in/path.md)
+    * [fs](./docs/built-in/fs.md)
+    * [http](./docs/built-in/http.md)
+    * [events](./docs/built-in/events.md)
