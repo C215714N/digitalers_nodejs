@@ -23,16 +23,16 @@ const app = createServer((req, res) => {
 
     switch(method){
         case 'GET':
-            console.log("consulta GET finalizada", url)
+            console.log("consulta GET finalizada", format, getContentTypes(format))
         break;
         case 'POST':
-            console.log("solicitud POST procesada", url)
+            console.log("solicitud POST procesada", format)
         break;
         case 'PUT':
-            console.log("actualizacion PUT implementada", url)
+            console.log("actualizacion PUT implementada", format)
         break;
         case 'DELETE':
-            console.log("peticion DELETE realizada", url)
+            console.log("peticion DELETE realizada", format)
         break;
     };
     
