@@ -30,8 +30,7 @@ const app = createServer((req, res) => {
         }
         code = 200;
         res.writeHead(code, headers);
-        res.write(data.toString());
-        res.end();
+        res.end(data);
     })
     getMethod(req);
 })

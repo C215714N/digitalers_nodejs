@@ -11,15 +11,15 @@ const contentTypes = {
     ".jpg":     "image/jpg",
     ".png":     "image/png",
     ".svg" :    "image/svg+xml",
-    "webp":     "image/webp",
-    "mp3":      "audio/mpeg",
-    "ogg":      "audio/ogg",
-    "mp4":      "video/mp4",
-    "webm":     "video/webm",
+    ".webp":     "image/webp",
+    ".mp3":      "audio/mpeg",
+    ".ogg":      "audio/ogg",
+    ".mp4":      "video/mp4",
+    ".webm":     "video/webm",
     // Formatos de Fuente
-    "woff":     "font/woff",
-    "otf":      "font/otf",
-    "ttf":      "font/ttf",
+    ".woff":     "font/woff",
+    ".otf":      "font/otf",
+    ".ttf":      "font/ttf",
 
     "default":  "text/plain",
 }
