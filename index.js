@@ -16,7 +16,7 @@ const backLog = () => console.log(`servicio ejecutandose en http://${HOST}:${POR
 const app = express();
 app.use(morgan("dev")); // Registro de Solicitudes
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     res.json({
         title: "NodeJS Digitalers",
         message: "Bienvenido a Telecom Digitalers"
