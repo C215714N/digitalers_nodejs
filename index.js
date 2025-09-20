@@ -3,6 +3,8 @@ import express from "express";
 // Dependencias de desarrollo
 import morgan from "morgan";
 import { configDotenv } from "dotenv";
+// Modulos Internos
+import usersRouter from "./src/routes/users.routes.js";
 
 // VARIABLES DE ENTORNO: Lectura y Configuracion
 configDotenv();
@@ -16,6 +18,8 @@ const backLog = () => console.log(`servicio ejecutandose en http://${HOST}:${POR
 const app = express();
 app.use(morgan("dev")); // Registro de Solicitudes
 
+// ENRUTAMIENTO: Manejo de direcciones
+app.use("/users", usersRouter);
 app.get("/", (req, res) => {
     res.json({
         title: "NodeJS Digitalers",
