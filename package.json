@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/c215714n/digitalers_nodejs/issues"
   },
-  "homepage": "https://github.com/c215714n/digitalers_nodejs#readme"
+  "homepage": "https://github.com/c215714n/digitalers_nodejs#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.2",
+    "morgan": "^1.10.1"
+  }
 }
