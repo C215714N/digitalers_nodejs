@@ -1,21 +1,21 @@
 [
     {
         "id": 1,
-        "product": "Monitor",
+        "name": "Monitor",
         "description": "Monitor gamer 29 pulgadas",
         "price": 389999.99,
         "stock": 100
     },
     {
         "id": 2,
-        "product": "Teclado",
+        "name": "Teclado",
         "description": "Teclado Mecanico 60%",
         "price": 54800.00,
         "stock": 2500
     },
     {
         "id": 3,
-        "product": "Gabinete",
+        "name": "Gabinete",
         "description": "Gabinete Tower Gaming Acrilico",
         "price": 154399.99,
         "stock": 348
