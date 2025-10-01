@@ -13,7 +13,7 @@ export const findProduct = (req, res) => {
         .catch(err => res.json({ message: err.message }))
 }
 export const filterProduct = (req, res) => {
-    const filter = searchFilter(req.query) || minMaxFilter(req.query);
+    const filter = searchFilter(req.query) || rangeFilter(req.query);
     ProductsModel.find(filter)
         .then(data => res.json(data))
         .catch(err => res.json({ message: err.message }))
