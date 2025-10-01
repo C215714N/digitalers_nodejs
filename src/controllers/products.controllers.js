@@ -20,7 +20,7 @@ export const filterProduct = (req, res) => {
 }
 export const updateProduct = (req, res) => {
     const filter = { _id: req.params.id };
-    const update = req.body;
+    const update = { $set: req.body };
     ProductsModel.updateOne(filter, update)
         .then(data => res.json({ message: `producto actualizado`, data }))
         .catch(err => res.json({ message: err.message }))

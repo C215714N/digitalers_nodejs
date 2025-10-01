@@ -7,6 +7,7 @@ import { configDotenv } from "dotenv";
 import { dbConn } from "./src/config/dbconn.js";
 import usersRouter from "./src/routes/users.routes.js";
 import productsRouter from "./src/routes/products.routes.js";
+import bodyParser from "body-parser";
 
 // VARIABLES DE ENTORNO: Lectura y Configuracion
 configDotenv();
@@ -21,6 +22,7 @@ const backLog = () => console.log(`servicio ejecutandose en http://${HOST}:${POR
 const app = express();
 app.use(morgan("dev")); // Registro de Solicitudes
 dbConn(URI);
+app.use(bodyParser.json()); // Permite el acceso al Body de Request
 app.set(express.json()); // uso de FormData
 app.set(express.urlencoded({extended: true})) // x-www-formurlencoded
 // ENRUTAMIENTO: Manejo de direcciones
