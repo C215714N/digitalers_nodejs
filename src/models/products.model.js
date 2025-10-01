@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
 const INT = {
     type: Number,
@@ -7,7 +7,7 @@ const INT = {
     max: 9e36,
     required: true,
 }
-const ProductSchema = new mongoose.Schema({
+const ProductSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -20,4 +20,4 @@ const ProductSchema = new mongoose.Schema({
     price: INT,
     stock: INT,
 });
-export const ProductsModel = mongoose.model("products", ProductSchema);
+export const ProductsModel = model("products", ProductSchema);
