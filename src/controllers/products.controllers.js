@@ -1,5 +1,5 @@
 import { ProductsModel } from "../models/products.model.js"
-
+import { searchFilter, rangeFilter } from "../utils/db.filters.js";
 export const createProduct = (req, res) => {
     const newProduct = new ProductsModel(req.body);
     newProduct.save()
@@ -7,7 +7,14 @@ export const createProduct = (req, res) => {
         .catch(err => res.json({ message: err.message }))
 }
 export const findProduct = (req, res) => {
-    ProductsModel.find()
+    const filter = req.params.id ?{ _id: req.params.id } : {}
+    ProductsModel.find(filter)
+        .then(data => res.json(data))
+        .catch(err => res.json({ message: err.message }))
+}
+export const filterProduct = (req, res) => {
+    const filter = searchFilter(req.query) || minMaxFilter(req.query);
+    ProductsModel.find(filter)
         .then(data => res.json(data))
         .catch(err => res.json({ message: err.message }))
 }

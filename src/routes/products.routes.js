@@ -4,6 +4,7 @@ import * as prodController from "../controllers/products.controllers.js"
 const productsRouter = Router();
 
 productsRouter.post("/", prodController.createProduct)
+productsRouter.get("/search", prodController.filterProduct)
 productsRouter.get("{/:id}", prodController.findProduct)
 productsRouter.put("/:id", prodController.updateProduct)
 productsRouter.delete("/:id",prodController.deleteProduct)
