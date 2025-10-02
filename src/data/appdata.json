@@ -1,0 +1,9 @@
+{
+    "title": "Aplicacion Node JS",
+    "message": "Bienvenido a Telecom Digitalers",
+    "navigation": [
+        {"link": "usuarios"},
+        {"link": "productos"},
+        {"link": "contacto"}
+    ]
+}
