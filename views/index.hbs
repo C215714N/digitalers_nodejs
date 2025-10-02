@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Handlebars</title>
+</head>
+<body>
+    <header>
+        <h1>{{title}}</h1>
+        <p>{{message}}</p>
+    </header>
+    <main>
+        {{#if products }}
+            {{#each products}}
+            {{#with this}}
+                <article>
+                    <h2>{{name}}</h2>
+                    <p>{{description}}</p>
+                </article>
+                <ul>
+                    <li>Precio: {{price}}</li>
+                    <li>Stock: {{stock}}</li>
+                </ul>
+            {{/with}}
+            {{/each}}
+        {{/if}}
+    </main>
+    <footer>
+        <p>Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
