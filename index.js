@@ -1,8 +1,11 @@
 // Importaciones del proyecto
 import express from "express";
+import { engine } from "express-handlebars";
 // Dependencias de desarrollo
 import morgan from "morgan";
 import { configDotenv } from "dotenv";
+import { configHandleBars as config} from "./config.js";
+
 // Modulos Internos
 import usersRouter from "./src/routes/users.routes.js";
 
@@ -17,7 +20,9 @@ const backLog = () => console.log(`servicio ejecutandose en http://${HOST}:${POR
 // SERVIDOR HTTP: Creacion y configuracion
 const app = express();
 app.use(morgan("dev")); // Registro de Solicitudes
-
+// MOTOR DE PLANTILLAS: Configuracion
+app.engine("hbs", engine(config))
+app.set("view engine", "hbs");
 // ENRUTAMIENTO: Manejo de direcciones
 app.use("/users", usersRouter);
 app.get("/", (req, res) => {
