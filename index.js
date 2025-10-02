@@ -1,3 +1,4 @@
+import appData from "./src/data/appdata.json" with { type: "json" }
 // Importaciones del proyecto
 import express from "express";
 import { engine } from "express-handlebars";
@@ -8,6 +9,7 @@ import { configHandleBars as config} from "./config.js";
 
 // Modulos Internos
 import usersRouter from "./src/routes/users.routes.js";
+import productsRouter from "./src/routes/products.routes.js";
 
 // VARIABLES DE ENTORNO: Lectura y Configuracion
 configDotenv();
@@ -25,10 +27,9 @@ app.engine("hbs", engine(config))
 app.set("view engine", "hbs");
 // ENRUTAMIENTO: Manejo de direcciones
 app.use("/users", usersRouter);
+app.use("/products", productsRouter);
 app.get("/", (req, res) => {
-    res.json({
-        title: "NodeJS Digitalers",
-        message: "Bienvenido a Telecom Digitalers"
-    })
+    res.render('index', appData)
 })
+app.use(express.static("public"));
 app.listen(PORT, HOST, backLog);
