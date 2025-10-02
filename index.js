@@ -17,6 +17,8 @@ const backLog = () => console.log(`servicio ejecutandose en http://${HOST}:${POR
 // SERVIDOR HTTP: Creacion y configuracion
 const app = express();
 app.use(morgan("dev")); // Registro de Solicitudes
+// MOTOR DE PLANTILLAS: Configuracion
+app.set("view engine", "ejs");
 
 // ENRUTAMIENTO: Manejo de direcciones
 app.use("/users", usersRouter);
