@@ -1,0 +1,27 @@
+head
+    meta(charset="utf-8")
+    meta(
+        name="viewport", 
+        content="width=device-width, initial-scale=1"
+    )
+    title Plantilla Pug
+    link(href="styles/default.css")
+body
+    header
+        h1=title
+        p=message
+    nav
+        ul.menu
+    main
+        if (products)
+            each product in products 
+                article
+                    header
+                        h2= product.name
+                        p= product.description
+                    ul
+                        li= product.price
+                        li= product.stock
+    footer
+        p Todos los derechos reservados
+    script(src="app/index.js")
