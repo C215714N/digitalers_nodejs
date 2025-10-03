@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantilla Handlebars</title>
-    <link rel="stylesheet" href="styles/default.css">
-</head>
+{{> head}}
 <body>
-    <header id="header" class="header">
-        <h1>{{title}}</h1>
-        <p>{{message}}</p>
-    </header>
+    {{> header}}
     <main class="container">
         {{#if products }}
             {{#each products}}
@@ -29,9 +21,7 @@
             {{/each}}
         {{/if}}
     </main>
-    <footer class="footer">
-        <p>Todos los derechos reservados</p>
-    </footer>
-    <script src="app/index.js"></script>
+    {{> footer}}
+    {{> scripts}}
 </body>
 </html>

@@ -1,6 +1,6 @@
+import { join } from 'path';
+
 export const configHandleBars = {
-    partialsDir: process.cwd() + "/views/partials",
-    layoutsDir: process.cwd() + "/views/layouts",
-    defaultLayout: process.cwd() + "/views/index.hbs",
-    ext: "hbs"
+    defaultLayout: join(process.cwd() + "/views/index.hbs"),
+    extname: '.hbs',
 };
