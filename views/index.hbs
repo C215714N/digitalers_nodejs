@@ -4,22 +4,11 @@
 <body>
     {{> header}}
     <main class="container">
-        {{#if products }}
+        {{#unless error}}
             {{#each products}}
-            {{#with this}}
-                <article class="card">
-                    <header class="header">
-                        <h2>{{name}}</h2>
-                        <p>{{description}}</p>
-                    </header>
-                    <ul class="card-body">
-                        <li>Precio: {{price}}</li>
-                        <li>Stock: {{stock}}</li>
-                    </ul>
-                </article>
-            {{/with}}
+                {{> product this}}
             {{/each}}
-        {{/if}}
+        {{/unless}}
     </main>
     {{> footer}}
     {{> scripts}}
