@@ -1,0 +1,41 @@
+/* Estilos Generales */
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: 'Raleway', 'Open Sans', 'Century Gothic', sans-serif;
+}
+body{
+    margin: 0;
+}
+/* Cabeceras */
+#header{
+    min-height: min(100vh, 640px);
+    background: #3333 linear-gradient(#c36, #448);
+    color: #eee;
+}
+.header{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #ccc;
+    padding: 1rem;
+}
+.header > *{
+    margin: 0;
+}
+/* Contenido */
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: .5rem;
+    padding: 1rem;
+}
+/* Clases de utilidad */
+
+/* Pie de Pagina */
+.footer{
+    text-align: center;
+    padding: .2rem;
+    background: #3333 linear-gradient(#448, #36c);
+    color: #eee;
+}
