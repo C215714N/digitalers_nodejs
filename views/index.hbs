@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plantilla Handlebars</title>
+    <link rel="stylesheet" href="styles/default.css">
 </head>
 <body>
-    <header>
+    <header id="header" class="header">
         <h1>{{title}}</h1>
         <p>{{message}}</p>
     </header>
-    <main>
+    <main class="container">
         {{#if products }}
             {{#each products}}
             {{#with this}}
-                <article>
-                    <h2>{{name}}</h2>
-                    <p>{{description}}</p>
+                <article class="card">
+                    <header class="header">
+                        <h2>{{name}}</h2>
+                        <p>{{description}}</p>
+                    </header>
+                    <ul class="card-body">
+                        <li>Precio: {{price}}</li>
+                        <li>Stock: {{stock}}</li>
+                    </ul>
                 </article>
-                <ul>
-                    <li>Precio: {{price}}</li>
-                    <li>Stock: {{stock}}</li>
-                </ul>
             {{/with}}
             {{/each}}
         {{/if}}
     </main>
-    <footer>
+    <footer class="footer">
         <p>Todos los derechos reservados</p>
     </footer>
 </body>
