@@ -16,7 +16,14 @@ document.addEventListener('submit', (e) => {
     message.value = '';
     message.focus();
 })
+//Funciones
+const renderMessage = (data) => {
+    const ul = document.querySelector('ul');
+    ul.innerHTML += `
+        <li id="${data.id}" class="card col-md-6 col-lg-4 ${data.id === 'user_'+socket.id ? 'self ms-auto bg-success-subtle' :'chat me-auto bg-primary-subtle'}">
+            <strong class="card-header">${data.username}:</strong> 
+            <span class="card-body">${data.message}</span>
+        </li>`
+}
 // Eventos Conexion WebSocket
-socket.on('message', (data) => {
-    console.log(data);
-})
+socket.on('message', renderMessage)
