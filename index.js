@@ -27,7 +27,7 @@ ws.on('connection', (socket) => {
     console.log('se conecto un cliente: ', socket.id)
     // Difusion del Mensaje a Todos los clientes
     socket.on('message', (data) => {
-        ws.emit('message', data)
+        ws.emit('message', {id: `user_${socket.id}`, ...data})
     })
     // Desconexion del Cliente
     socket.on('disconnect', () => {
