@@ -1,3 +1,4 @@
+(()=>document.addEventListener('DOMContentLoaded', () => {
 // Declaraciones
 const socket = io();
 // Eventos de Navegador
@@ -25,5 +26,12 @@ const renderMessage = (data) => {
             <span class="card-body">${data.message}</span>
         </li>`
 }
+const renderError = (err) => {
+    const ul = document.querySelector('ul');
+    ul.innerHTML = Object.entries(err).map(([k,v]) => `<li><strong>${k}:</strong> ${v}</li>`).join()
+} 
 // Eventos Conexion WebSocket
-socket.on('message', renderMessage)
+socket.emit('load', socket)
+socket.on('message', renderMessage);
+socket.on('error', renderError);
+}))()
