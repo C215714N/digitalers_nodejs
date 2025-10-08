@@ -1,5 +1,31 @@
 /* Estilos Generales */
-
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'Raleway', sans-serif;
+    scroll-behavior: smooth;
+}
 /* Esilos Mensajes */
-
+#root ul > li{
+    position: relative;
+}
+#root li::before{
+    content: '';
+    position: absolute;
+    top: calc(100% - .5rem);
+    width: 1rem;
+    height: 1rem;
+}
+.card {
+    border: none;
+}
+.self::before{
+    right: 0;
+    background-color: var(--bs-success-bg-subtle);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+.chat::before{
+    left: 0;
+    background-color: var(--bs-primary-bg-subtle);
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
 /* Estilos Formulario */
