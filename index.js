@@ -7,6 +7,9 @@ import express from "express";
 import { createServer } from "node:http";
 import { Server} from "socket.io";
 // Modulos del Proyecto
+import { webSocket } from "./src/webSocket";
+import { dbConn } from "./src/config/db";
+import { httpConfig } from "./src/config/http";
 
 /** Desarrollo del Proyecto */
 // Declaraciones
@@ -18,22 +21,11 @@ const {
     URI='mongodb://localhost:27017/chat'
 } = process.env
 // Configuracion del Servidor
-const app = express();
-const server = createServer(app);
-const ws = new Server(server);
+httpConfig();
+dbConn(URI);
 app.use(morgan('dev'));
 // Configuracion de Clientes
-ws.on('connection', (socket) => {
-    console.log('se conecto un cliente: ', socket.id)
-    // Difusion del Mensaje a Todos los clientes
-    socket.on('message', (data) => {
-        ws.emit('message', {id: `user_${socket.id}`, ...data})
-    })
-    // Desconexion del Cliente
-    socket.on('disconnect', () => {
-        console.log('se desconecto un cliente: ', socket.id)
-    })
-})
+ws.on('connection', webSocket)
 // Implementacion de Servidor
 app.use(express.static('public'));
 server.listen(PORT, () => console.log(`servicio ejecutandose en ${PROTOCOL}://${HOST}:${PORT}`))
