@@ -34,3 +34,15 @@ Esto es una guia para los alumnos de la capacitacion __Digitalers NodeJS__ que c
     * [EJS](./docs/templates/ejs.md)
     * [HandleBars](./docs/templates/hbs.md)
 * [Bases de Datos](./docs/db.md)
+* Pruebas de Desarrollo
+    * [TDD](./docs/devtest/tdd.md)
+    * [BDD](./docs/devtest/bdd.md)
+* Dependencias de Proyecto
+    * [Express](./docs/dep/express.md)
+    * [Middlewares](./docs/dep/middleware.md)
+    * [Mongoose](./docs/dep/mongoose.md)
+    * [Websocket](./docs/dep/websocket.md)
+* Produccion
+    * [Babel](./docs/prod/babel.md)
+    * [Webpack](./docs/prod/webpack.md)
+    * [TypeScript](./docs/prod/typescript.md)
